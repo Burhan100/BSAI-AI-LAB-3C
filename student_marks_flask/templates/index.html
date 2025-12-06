@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Marks Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Student Marks Prediction</h1>
+    <form method="POST">
+        <input type="text" name="hours" placeholder="Enter Hours Studied" required>
+        <br>
+        <button type="submit">Predict Score</button>
+    </form>
+
+    {% if prediction is not none %}
+        <h2>Predicted Score: {{ prediction }}</h2>
+    {% endif %}
+
+    <h2>Scatter Plot with Regression Line</h2>
+    <img src="{{ url_for('static', filename='scatter.png') }}" alt="Scatter Plot">
+
+    <h2>Correlation Heatmap</h2>
+    <img src="{{ url_for('static', filename='heatmap.png') }}" alt="Heatmap">
+
+    <h2>Histogram of Scores</h2>
+    <img src="{{ url_for('static', filename='histogram.png') }}" alt="Histogram">
+
+    <h2>Boxplot of Hours and Scores</h2>
+    <img src="{{ url_for('static', filename='boxplot.png') }}" alt="Boxplot">
+</body>
+</html>
